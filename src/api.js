@@ -1,23 +1,26 @@
 import axios from "axios";
 
-const base = process.env.REACT_APP_API_URL;
+const base = process.env.REACT_APP_API_URL; 
 
 const api = {
-  getBooks: (q) => {
-    if (q) return axios.get(`${base}/books?q=${q}`);
-    return axios.get(`${base}/books`);
-  },
+  // GET /api/books?q=...
+  getBooks: (q) =>
+    axios.get(`${base}/api/books`, { params: q ? { q } : {} }),
 
-  addBook: (data) => axios.post(`${base}/books`, data),
+  // POST /api/books
+  addBook: (data) => axios.post(`${base}/api/books`, data),
 
-  summary: () => axios.get(`${base}/books/summary`),
+  // GET /api/books/summary
+  summary: () => axios.get(`${base}/api/books/summary`),
 
-  issueBook: (data) => axios.post(`${base}/issues/issue`, data),
+  // POST /api/issues/issue
+  issueBook: (data) => axios.post(`${base}/api/issues/issue`, data),
 
-  currentIssues: () => axios.get(`${base}/issues/current`),
+  // GET /api/issues/current
+  currentIssues: () => axios.get(`${base}/api/issues/current`),
 
-  returnBook: (data) => axios.post(`${base}/issues/return`, data),
+  // POST /api/issues/return
+  returnBook: (data) => axios.post(`${base}/api/issues/return`, data),
 };
 
 export default api;
-
