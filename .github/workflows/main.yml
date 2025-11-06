@@ -1,4 +1,4 @@
-vname: Node + React CI
+name: Node + React CI
 
 on:
   push:
