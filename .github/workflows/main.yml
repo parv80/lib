@@ -1,9 +1,8 @@
-name: Node + React CI
+vname: Node + React CI
 
 on:
   push:
     branches: ["main"]
-  pull_request:
 
 jobs:
   build:
